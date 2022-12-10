@@ -43,7 +43,23 @@
                                             <td>{{ $req->stock->product->product_name }}</td>
                                                <td>{{ $req->quantity }}</td>
                                                <td>{{ $req->user->name }}</td>
-                                             <td>{{ $req->dept_status }}</td>
+                                             <td>
+                                <div class="row">
+                                        <div class="col-sm">
+                                           <div class="button-list"><div class="btn-group">
+                                            <div class="dropdown">
+                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-secondary dropdown-toggle btn-icon-dropdown" type="button"><span class="feather-icon"><i data-feather="user"></i></span> <span class="caret"></span></button>
+                                                <div role="menu" class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separated link</a>
+                                                </div>
+                                            </div>
+                                      </div>
+                                    </div>
+                                        </div>{{ $req->dept_status }}</td>
 
 
                                             <td>{{ $req->admin_status }}</td>
