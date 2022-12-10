@@ -22,6 +22,39 @@
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
+            <div class="mt-4">
+                <x-input-label for="role_name" :value="__('name')" />
+                <select
+                    class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring
+                    focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full"
+                    @error('role_name') is-invalid @enderror" name="role_name" id="role_name">
+
+                    <option selected disabled>-- Select Role Name --</option>
+                    @foreach ($role as $name)
+                        <option value="{{ $name->name }}" :value="old('name')">{{ $name->name }}</option>
+                    @endforeach
+
+
+                </select>
+
+            </div>
+            <div class="mt-4">
+                <x-input-label for="department" :value="__('Departments')" />
+                <select
+                    class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring
+                    focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full  @error('department') is-invalid @enderror"
+                    name="department" id="department">
+
+                    <option selected disabled>-- Select Department --</option>
+                    @foreach ($dept as $name)
+                        <option value="{{ $name->name }}">{{ $name->name }}</option>
+                    @endforeach
+
+
+                </select>
+
+            </div>
+
 
             <!-- Password -->
             <div class="mt-4">
