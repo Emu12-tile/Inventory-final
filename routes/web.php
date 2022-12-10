@@ -44,4 +44,10 @@ Route::resource('department', DepartmentController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('product', ProductController::class);
 Route::resource('stock', StockController::class);
-Route::resource('req',ReqController::class);
+Route::resource('req', ReqController::class);
+
+// createReq
+Route::get('/req/add/{id}', [ReqController::class, 'createReq'])->name('addReq');
+Route::post('/req/add/{id}', [ReqController::class, 'storeRestore'])->name('addReqPost');
+
+// /req/id/

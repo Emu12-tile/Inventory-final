@@ -14,7 +14,7 @@
 
                     <div class="row">
                         <div class="col-sm">
-                            <form action="{{ route('req.store') }}" method="POST">
+                            <form action="{{ route('addReqPost',$id) }}" method="POST">
                                 @csrf
 
                                 <div class="form-group row">

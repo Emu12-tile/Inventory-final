@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('quantity');
             $table->string('dept_status')->nullable();
-             $table->string('');
+
             // $table->foreignId('stock_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->string('store_status')->nullable();
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-                                                       
+
     /**
      * Reverse the migrations.
      *

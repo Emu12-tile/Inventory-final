@@ -27,9 +27,9 @@
                                         <th>No</th>
                                         <th>Product Name</th>
                                         <th>Quantity</th>
-                                        <th>Specification</th>
+                                        {{-- <th>Specification</th> --}}
                                         <th>Registered By</th>
-                                         <th>Description</th>
+                                         {{-- <th>Description</th> --}}
                                            <th>Request</th>
                                         <th>Action</th>
                                     </tr>
@@ -41,11 +41,11 @@
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $stock->product->product_name }}</td>
                                                <td>{{ $stock->count }}</td>
-                                             <td>{{ $stock->specification }}</td>
+                                             {{-- <td>{{ $stock->specification }}</td> --}}
 
                                             <td>{{ $stock->user->name }}</td>
-                                             <td>{{ $stock->description }}</td>
-                                             <td> <a class="btn btn-dark" href="{{ route('req.create') }}"> Add to Cart</a></td>
+                                             {{-- <td>{{ $stock->description }}</td> --}}
+                                             <td> <a class="btn btn-dark" href="{{ route('addReq',$stock->id) }}"> Add to Cart</a></td>
                                             <td>
                                                 <form action="{{ route('stock.destroy', $stock->id) }}"
                                                     method="POST">

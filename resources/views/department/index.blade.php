@@ -36,15 +36,15 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $department->name }}</td>
-                                            <td>{{ $department->college->name }}</td>
+                                            <td>{{ $department->category->name }}</td>
 
                                             <td>
-                                                <form action="{{ route('admin.department.destroy', $department->id) }}"
+                                                <form action="{{ route('department.destroy', $department->id) }}"
                                                     method="POST">
-                                                    <a href="{{ route('admin.department.show', $department->id) }}"
+                                                    <a href="{{ route('department.show', $department->id) }}"
                                                         class="mr-25" data-toggle="tooltip" data-original-title="show"> <i
                                                             class="icon-eye"></i> </a>
-                                                    <a href="{{ route('admin.department.edit', $department->id) }}"
+                                                    <a href="{{ route('department.edit', $department->id) }}"
                                                         class="mr-25" data-toggle="tooltip" data-original-title="Edit"> <i
                                                             class="icon-pencil"></i> </a>
 
