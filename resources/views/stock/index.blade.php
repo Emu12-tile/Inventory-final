@@ -45,7 +45,7 @@
 
                                             <td>{{ $stock->user->name }}</td>
                                              <td>{{ $stock->description }}</td>
-                                             <td> <a class="btn btn-dark" href="{{ route('request.create') }}"> Add to Cart</a></td>
+                                             <td> <a class="btn btn-dark" href="{{ route('req.create') }}"> Add to Cart</a></td>
                                             <td>
                                                 <form action="{{ route('stock.destroy', $stock->id) }}"
                                                     method="POST">
