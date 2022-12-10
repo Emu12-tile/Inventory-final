@@ -10,12 +10,12 @@
     <div class="container">
 
         <section class="hk-sec-wrapper mt-100">
-            <div class="pull-right hk-sec-title">
+            {{-- <div class="pull-right hk-sec-title">
 
-                <a href="{{ route('stock.create') }}" class="mr-25" data-toggle="tooltip" data-original-title="add">
+                <a href="{{ route('req.create') }}" class="mr-25" data-toggle="tooltip" data-original-title="add">
                     <i class="icon-plus icon-4x"> </i> add </a>
-            </div>
-            <h5 class="hk-sec-title">Stocks In </h5>
+            </div> --}}
+            <h5 class="hk-sec-title">Request  </h5>
 
             <div class="row">
                 <div class="col-sm">
@@ -25,33 +25,36 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Product Name</th>
+                                        <th>Request Name</th>
+                                        <th>Stock Name</th>
                                         <th>Quantity</th>
-                                        <th>Specification</th>
-                                        <th>Registered By</th>
-                                         <th>Description</th>
-                                           <th>Request</th>
+                                        <th> Head of Dept</th>
+                                         <th>dept status</th>
+                                           <th>Admin status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($stocks as $i => $stock)
+                                    @foreach ($reqs as $i => $req)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            <td>{{ $stock->product->product_name }}</td>
-                                               <td>{{ $stock->count }}</td>
-                                             <td>{{ $stock->specification }}</td>
+                                            <td>{{ $req->user->name }}</td>
+                                            <td>{{ $req->stock->product->product_name }}</td>
+                                               <td>{{ $req->quantity }}</td>
+                                               <td>{{ $req->user->name }}</td>
+                                             <td>{{ $req->dept_status }}</td>
 
-                                            <td>{{ $stock->user->name }}</td>
-                                             <td>{{ $stock->description }}</td>
-                                             <td> <a class="btn btn-dark" href="{{ route('req.create') }}"> Add to Cart</a></td>
+
+                                            <td>{{ $req->admin_status }}</td>
+
+
                                             <td>
-                                                <form action="{{ route('stock.destroy', $stock->id) }}"
+                                                {{-- <form action="{{ route('req.destroy', $req->id) }}"
                                                     method="POST">
-                                                    {{-- <a href="{{ route('stock.show', $stock->id) }}"
+                                                    <a href="{{ route('stock.show', $stock->id) }}"
                                                         class="mr-25" data-toggle="tooltip" data-original-title="show"> <i
-                                                            class="icon-eye"></i> </a> --}}
+                                                            class="icon-eye"></i> </a>
                                                     <a href="{{ route('stock.edit', $stock->id) }}"
                                                         class="mr-25" data-toggle="tooltip" data-original-title="Edit"> <i
                                                             class="icon-pencil"></i> </a>
@@ -63,7 +66,7 @@
                                                         <a data-toggle="tooltip" data-original-title="delete"> <i
                                                                 class=" icon-trash txt-danger"></i> </a>
                                                     </button>
-                                                </form>
+                                                </form> --}}
 
                                             </td>
                                         </tr>
@@ -71,7 +74,7 @@
 
                                 </tbody>
                             </table>
-                            {!! $stocks->links() !!}
+                            {!! $reqs->links() !!}
 
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReqController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -43,3 +44,4 @@ Route::resource('department', DepartmentController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('product', ProductController::class);
 Route::resource('stock', StockController::class);
+Route::resource('req',ReqController::class);
