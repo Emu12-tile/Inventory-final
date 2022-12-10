@@ -70,6 +70,14 @@
                                 </span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('req.index') }}">
+                                <i class="ion ion-ios-copy"></i>
+                                <span class="nav-link-text">
+                                    Request
+                                </span>
+                            </a>
+                        </li>
 
 
                         {{-- <li class="nav-item">
