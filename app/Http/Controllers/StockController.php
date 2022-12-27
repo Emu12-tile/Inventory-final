@@ -38,6 +38,10 @@ class StockController extends Controller
 
         return redirect('stock')->with('status', 'product added successfully');
     }
+    public function show(Stock $stock)
+    {
+        return view('stock.show', compact('stock'));
+    }
     public function edit($id)
     {
 

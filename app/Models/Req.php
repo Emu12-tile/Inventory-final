@@ -11,7 +11,7 @@ class Req extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['stock_id', 'user_id', 'quantity'];
+    protected $fillable = ['stock_id', 'user_id', 'quantity','store_status','head_status'];
 
 
     public function user()

@@ -12,10 +12,10 @@
         <section class="hk-sec-wrapper mt-100">
             <div class="pull-right hk-sec-title">
 
-                <a href="{{ route('stock.create') }}" class="mr-25" data-toggle="tooltip" data-original-title="add">
-                    <i class="icon-plus icon-4x"> </i> add </a>
+                {{-- <a href="{{ route('stock.create') }}" class="mr-25" data-toggle="tooltip" data-original-title="add">
+                    <i class="icon-plus icon-4x"> </i> add </a> --}}
             </div>
-            <h5 class="hk-sec-title">Stocks In </h5>
+            <h5 class="hk-sec-title">Stocks Out </h5>
 
             <div class="row">
                 <div class="col-sm">
@@ -27,25 +27,25 @@
                                         <th>No</th>
                                         <th>Product Name</th>
                                         <th>Quantity</th>
-                                        {{-- <th>Specification</th> --}}
-                                        <th>Registered By</th>
-                                         {{-- <th>Description</th> --}}
+
+                                        <th>Approved By</th>
+
                                            <th>Request</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($stocks as $i => $stock)
+                                    @foreach ($stockOut as $i => $stock)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            <td>{{ $stock->product->product_name }}</td>
+                                            <td>{{ $stock->req->stock->product->product_name }}</td>
                                                <td>{{ $stock->count }}</td>
-                                             {{-- <td>{{ $stock->specification }}</td> --}}
 
-                                            <td>{{ $stock->user->name }}</td>
-                                             {{-- <td>{{ $stock->description }}</td> --}}
-                                             <td> <a class="btn btn-dark" href="{{ route('addReq',$stock->id) }}"> Add to Cart</a></td>
+
+                                            {{-- <td>{{ $stock->user->name }}</td> --}}
+
+
                                             <td>
                                                 <form action="{{ route('stock.destroy', $stock->id) }}"
                                                     method="POST">
@@ -71,7 +71,7 @@
 
                                 </tbody>
                             </table>
-                            {!! $stocks->links() !!}
+                            {!! $stockOut->links() !!}
 
                         </div>
                     </div>

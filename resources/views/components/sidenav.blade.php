@@ -7,7 +7,7 @@
             <div class="navbar-nav-wrap">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item active">
-                        <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#dash_drp">
+                        <a class="nav-link" href="" data-toggle="collapse" data-target="#dash_drp">
                             <i class="ion ion-ios-keypad"></i>
                             <span class="nav-link-text">Dashboard</span>
                         </a>
@@ -17,7 +17,7 @@
                             <li class="nav-item">
                                 <ul class="nav flex-column">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="dashboard1.html">CRM</a>
+                                        <a class="nav-link" href="{{ route('home') }}">CRM</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="dashboard2.html">Project</a>
@@ -46,15 +46,16 @@
                                 </span>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('category.index') }}">
-                                <i class="ion ion-ios-list-box"></i>
+                                <i
+                                    class="glyphicon glyphicon-th-list "style="font-size:18px"></i>
                                 <span class="nav-link-text">
                                     Categories
-                                </span>
+                                    </span>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('product.index') }}">
                                 <i class="ion ion-ios-list-box"></i>
                                 <span class="nav-link-text">
@@ -62,9 +63,9 @@
                                 </span>
                             </a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('stock.index') }}">
-                                <i class="ion ion-ios-list-box"></i>
+                                <i class="glyphicon glyphicon-signal"></i>
                                 <span class="nav-link-text">
                                     Stock In
                                 </span>
@@ -72,7 +73,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('req.index') }}">
-                                <i class="ion ion-ios-copy"></i>
+                                <i class="material-icons">add_shopping_cart</i>
                                 <span class="nav-link-text">
                                     Request
                                 </span>
@@ -80,20 +81,19 @@
                         </li>
 
 
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.staff.index') }}">
-                                <i class="ion ion-ios-copy"></i>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('stock-out.index') }}">
+                                <i class="fa fa-archive"></i>
                                 <span class="nav-link-text">
-                                    Staff
+                                    Stock Out
                                 </span>
                             </a>
-                        </li> --}}
+                        </li>
                         {{-- @endrole --}}
 
 
                         @role('head')
-
-                        {{-- <li class="nav-item">
+                            {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.quantity.index') }}">
                                 <i class="ion ion-md-archive"></i>
                                 <span class="nav-link-text">
@@ -102,7 +102,7 @@
                             </a>
                         </li> --}}
 
-                    {{-- </ul>
+                            {{-- </ul>
 
 
                     <li class="nav-item">
@@ -152,9 +152,8 @@
                 </ul>
 
                 </ul> --}}
-
-                @endrole
-                {{-- <ul class="navbar-nav flex-column">
+                        @endrole
+                        {{-- <ul class="navbar-nav flex-column">
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0);" data-toggle="collapse" data-target="#content_drp">
                             <i class="glyphicon glyphicon-glass"></i>
@@ -240,8 +239,8 @@
         <div class="nicescroll-bar position-relative">
             <div class="settings-panel-wrap">
                 <div class="settings-panel-head">
-                    <img class="brand-img d-inline-block align-top"
-                        src="{{ asset('assets/dist/img/logo-light.png') }}" alt="brand" />
+                    <img class="brand-img d-inline-block align-top" src="{{ asset('assets/dist/img/logo-light.png') }}"
+                        alt="brand" />
                     <a href="javascript:void(0);" id="settings_panel_close" class="settings-panel-close"><span
                             class="feather-icon"><i data-feather="x"></i></span></a>
                 </div>

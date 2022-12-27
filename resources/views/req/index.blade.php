@@ -43,48 +43,64 @@
                                             <td>{{ $req->stock->product->product_name }}</td>
                                                <td>{{ $req->quantity }}</td>
                                                <td>{{ $req->user->name }}</td>
-                                             <td>
-                                <div class="row">
-                                        <div class="col-sm">
-                                           <div class="button-list"><div class="btn-group">
-                                            <div class="dropdown">
-                                                <button aria-expanded="false" data-toggle="dropdown" class="btn btn-secondary dropdown-toggle btn-icon-dropdown" type="button"><span class="feather-icon"><i data-feather="user"></i></span> <span class="caret"></span></button>
-                                                <div role="menu" class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else here</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#">Separated link</a>
-                                                </div>
-                                            </div>
-                                      </div>
-                                    </div>
-                                        </div>{{ $req->dept_status }}</td>
+                                             <td> <select data-target="{{ $req->id }}"
+                                             class=" btn color-wrap text-warning btn-success dropdown-toggle btn-icon-dropdown requestStatus "
+                                             @error('dept_status') is-invalid @enderror" name="dept_status"
+                                             id="dept_status">
+
+                                             <option selected disabled  >Pending</option>
+
+                                                 @foreach ($status as $name)
+                                                     @if ($req->dept_status == $name->status )
 
 
-                                            <td>{{ $req->admin_status }}</td>
+                                                         <option  value="{{ $name->status }}"selected>{{ $name->status }}
+                                                         </option>
+
+                                                     @else
 
 
-                                            <td>
-                                                {{-- <form action="{{ route('req.destroy', $req->id) }}"
-                                                    method="POST">
-                                                    <a href="{{ route('stock.show', $stock->id) }}"
-                                                        class="mr-25" data-toggle="tooltip" data-original-title="show"> <i
-                                                            class="icon-eye"></i> </a>
-                                                    <a href="{{ route('stock.edit', $stock->id) }}"
-                                                        class="mr-25" data-toggle="tooltip" data-original-title="Edit"> <i
-                                                            class="icon-pencil"></i> </a>
+                                                           <option value="{{ $name->status }}">{{ $name->status }}</option>
 
-                                                    @csrf
-                                                    @method('DELETE')
+                                                     @endif
+                                                 @endforeach
 
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <a data-toggle="tooltip" data-original-title="delete"> <i
-                                                                class=" icon-trash txt-danger"></i> </a>
-                                                    </button>
-                                                </form> --}}
 
-                                            </td>
+                                         </select>
+                                             </td>
+                                         <td> <select data-target="{{ $req->id }}"
+                                             class=" btn color-wrap  dropdown-btn-toggle btn-icon-dropdown reqStatus "
+                                             @error('store_status') is-invalid @enderror" name="store_status"
+                                             id="store_status">
+
+                                             <option selected disabled  >Pending</option>
+
+                                                 @foreach ($status as $name)
+                                                     @if ($req->store_status == $name->status )
+
+
+                                                         <option  value="{{ $name->status }}"selected>{{ $name->status }}
+                                                         </option>
+
+
+                                                     @else
+
+
+                                                           <option value="{{ $name->status }}">{{ $name->status }}</option>
+
+                                                     @endif
+                                                 @endforeach
+
+
+                                         </select>
+                                        </td>
+                        <td> <a class="btn btn-dark" href="{{ route('addStockOut',$req->id) }}"> Go</a></td>
+
+
+
+
+
+
                                         </tr>
                                     @endforeach
 
@@ -104,3 +120,59 @@
 
     </div>
 @endsection
+@section('javascript')
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+     <script>
+         $(".requestStatus").on("change", function() {
+             if ($(this).val() != "") {
+                 // console.log("test")
+                 $.ajax({
+                     url: "{{ route('change_status') }}",
+
+                     method: 'POST',
+                     headers: {
+                         "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                     },
+                     data: {
+                         "status": $(this).val(),
+                         "item": $(this).attr("data-target")
+                     },
+                     success: function(response) {
+                         if (response.status) {
+                             alert("Status changed succussfully");
+                         }
+                     },
+                     error: function(response) {}
+                 });
+             }
+         });
+          $(".reqStatus").on("change", function() {
+             if ($(this).val() != "") {
+                 // console.log("test")
+                 $.ajax({
+                     url: "{{ route('chan_status') }}",
+
+                     method: 'POST',
+                     headers: {
+                         "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                     },
+                     data: {
+                         "status": $(this).val(),
+                         "item": $(this).attr("data-target")
+                     },
+                     success: function(response) {
+                         if (response.status) {
+                             alert("Status changed succussfully");
+                         }
+                     },
+                     error: function(response) {}
+                 });
+             }
+         });
+
+
+         </script>
+         @endsection
+
+

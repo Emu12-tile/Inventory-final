@@ -6,6 +6,7 @@ use App\Http\Controllers\StockController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\StockOutController;
 use App\Http\Controllers\DepartmentController;
 
 /*
@@ -45,9 +46,14 @@ Route::resource('category', CategoryController::class);
 Route::resource('product', ProductController::class);
 Route::resource('stock', StockController::class);
 Route::resource('req', ReqController::class);
-
+Route::resource('stock-out', StockOutController::class);
+// create stock-out
+Route::get('/stock-out/add/{id}', [StockOutController::class, 'createStockOut'])->name('addStockOut');
+Route::post('/stock-out/add/{id}', [StockOutController::class, 'storeRestore'])->name('addStockOutPost');
 // createReq
 Route::get('/req/add/{id}', [ReqController::class, 'createReq'])->name('addReq');
 Route::post('/req/add/{id}', [ReqController::class, 'storeRestore'])->name('addReqPost');
+Route::post('request/status/change', [ReqController::class, 'changeStatus'])->name("change_status");
+Route::post('request/status/chan', [ReqController::class, 'chanStatus'])->name("chan_status");
 
 // /req/id/

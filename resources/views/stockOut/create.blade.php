@@ -7,22 +7,22 @@
 
                 <section class="hk-sec-wrapper mt-100">
                     <div class="pull-right">
-                        <a class="btn btn-dark" href="{{ route('stock.index') }}"> Back</a>
+                        <a class="btn btn-dark" href="{{ route('req.index') }}"> Back</a>
                     </div>
-                    <h5 class="hk-sec-title">Add request </h5>
+                    <h5 class="hk-sec-title">Add Stock Out </h5>
 
 
                     <div class="row">
                         <div class="col-sm">
-                            <form action="{{ route('addReqPost',$id) }}" method="POST">
+                            <form action="{{ route('addStockOutPost', $id) }}" method="POST">
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Quantity</label>
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Quantity approved</label>
                                     <div class="col-sm-10">
                                         <input type="text"
-                                            name="quantity"class="form-control @error('quantity') is-invalid @enderror"
-                                            id="inputEmail3" value="{{ old('quantity') }}" placeholder="quantity ">
+                                            name="count"class="form-control @error('count') is-invalid @enderror"
+                                            id="inputEmail3" value="{{ old('count') }}" placeholder="count ">
                                         @error('count')
                                             <span class=" error invalid-feedback">
                                                 <strong>{{ $message }}</strong>
